@@ -33,11 +33,29 @@ Fluxo Principal
 
 
 ## CDU003 - Remover Lista
- Fluxo Principal
-  1. apos o termino da lista (todas as tarefas concluidas/ tempo da lista esgotado), o sistema finaliza a lista.
-  2. depois de finalizar a lista, o sistema manda o usuario para a pagina inicial (perfil do usuario), e la estara a lista que ja foi 
-  finalizada pelo usuario, com a mensagem "a lista foi finalizada as (horario e data)".
-  3. o usuario tera a opção de remover a lista ou deixar ela em seu perfil.
-  4. caso o usuario queira deixar em seu perfil, ele deve pressionar a opção 'salvar', caso queira remover ele deve pressionar a opção 
-  'remover'.
-  5. depois de escolher a opção 'remover' o sistema apaga a lista do perfil, e exibe um botão '+ criar nova lista' (CDU001)
+
+Fluxo Principal
+
+  1.	apos o termino da lista (todas as tarefas concluidas/ tempo da lista esgotado), o sistema finaliza a lista.
+  2.	depois de finalizar a lista, o sistema manda o usuario para a pagina inicial (perfil do usuario), e la estara a lista que ja foi finalizada pelo usuario, com a mensagem "a lista foi finalizada as (horario e data)".
+  3.	o usuario tera a opção de remover a lista 
+  4.	o usuário escolhe a opção 'remover' e o sistema apaga a lista do perfil 
+  5.	sistema exibe um botão '+ criar nova lista' (CDU001)
+
+Fluxo Alternativo 4b
+
+  1. usuário seleciona opção ‘salvar’ para salvar a lista.
+  2. sistema apresenta campo para alterar nome da lista a ser salva
+  3. sistema apresenta opções ‘Cancelar’e ‘OK’
+  4. usuário preenche campo de nome e seleciona ‘OK’
+  5. retorna ao passo 5 do fluxo principal
+
+Fluxo Alternativo 4c
+
+  1. usuário seleciona opção ‘salvar’ para salvar a lista.
+  2. sistema apresenta campo para alterar nome da lista a ser salva
+  3. sistema apresenta opções ‘Cancelar’ e ‘OK’
+  4. usuário seleciona cancelar
+  5. sistema confirma desistência de armazenamento da lista
+  6. usuário confirma cancelamento
+  7. retorna ao passo 5 do fluxo principal
