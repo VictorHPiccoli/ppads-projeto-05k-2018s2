@@ -1,0 +1,47 @@
+## Caso de uso em teste : CDU003 - Remover Lista 
+
+Fluxo : Principal
+
+Step 1 : Acessar tarefa finalizada
+Resultado 1 : Páginas de tarefas concluídas é exibida
+
+Step 2 : Usuário seleciona lista a ser removida
+Resultado 2 : Opção de ‘remover lista’ e ‘salvar’ são exibidas
+
+Step 3 : Usuário seleciona ‘Remover Lista’
+Resultado 3 : Lista selecionada é removida
+
+
+
+Fluxo : Fluxo Alternativo 4b
+
+Step 1 : Acessar tarefa finalizada
+Resultado 1 : Páginas de tarefas concluídas é exibida
+
+Step 2 : Usuário seleciona lista a ser salva
+Resultado 2 : Opção de ‘remover lista’ e ‘salvar’ são exibidas
+
+Step 3 : Usuário seleciona ‘Salvar’
+Resultado 3 : Opções ‘OK’ e ‘Cancelar’ são exibidas
+
+Step 4 : Usuário seleciona ‘OK’
+Resultado 4 : Lista é salva
+
+
+
+Fluxo : Fluxo Alternativo 4c
+
+Step 1 : Acessar tarefa finalizada
+Resultado 1 : Páginas de tarefas concluídas é exibida
+
+Step 2 : Usuário seleciona lista a ser salva
+Resultado 2 : Opção de ‘remover lista’ e ‘salvar’ são exibidas
+
+Step 3 : Usuário seleciona ‘Salvar’
+Resultado 3 : Opções ‘OK’ e ‘Cancelar’ são exibidas
+
+Step 4 : Usuário seleciona ‘Cancelar’
+Resultado 4 : Páginas de tarefas concluídas é exibida
+
+
+
