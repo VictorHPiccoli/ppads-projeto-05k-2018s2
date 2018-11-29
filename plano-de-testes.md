@@ -26,7 +26,24 @@ Resultado 2 : Deverá aparecer uma tela para ele escrever o nome da lista.
 Step 3: O usuário deverá nomear a lista como "Lista de compras" e clicar em "Salvar"
 Resultado 3: A tela deverá fechar, a tela inicial irá recarregar e a lista criada deverá aparecer.
  
+ ## Caso de uso em teste : Editar Prioridade da Lista
  
+Step 1 : O usuário deve se autenticar no nosso sistema com o seguinte acesso:
+E-mail: admin@admin.com
+Resultado 1 : Páginas de Listas é exibida.
+
+Step 2 : O usuário deverá clicar no botão de Nova Lista
+Resultado 2 : Deverá aparecer uma tela para ele escrever o nome da lista.
+
+Step 3: O usuário deverá nomear a lista como "Lista de compras", e no select abaixo do campo selecionar a lista como prioridad e normal e clicar em "Salvar".
+
+Step 4: O usuário deverá clicar no botão de edição de lista (Ícone de lápis)
+Resultado 4: Deverá aparecer a tela de editar lista.
+
+Step 5: O usuário deverá alterar o nome da lista para "Lista de tarefas" e alterar a prioridade para alta e clicar em "Salvar".
+Resultado 5: A tela deverá fechar, a tela inicial irá recarregar e a lista deverá ser alterada.
+
+
  
 Fluxo : Fluxo Alternativo 4b
 
