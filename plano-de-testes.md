@@ -26,7 +26,7 @@ Resultado 2 : Deverá aparecer uma tela para ele escrever o nome da lista.
 Step 3: O usuário deverá nomear a lista como "Lista de compras" e clicar em "Salvar"
 Resultado 3: A tela deverá fechar, a tela inicial irá recarregar e a lista criada deverá aparecer.
  
- ## Caso de uso em teste : Editar Prioridade da Lista
+ ## Caso de uso em teste : Editar Lista
  
 Step 1 : O usuário deve se autenticar no nosso sistema com o seguinte acesso:
 E-mail: admin@admin.com
