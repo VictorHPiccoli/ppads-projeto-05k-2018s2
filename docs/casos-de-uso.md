@@ -59,3 +59,35 @@ Fluxo Alternativo 4c
   5. sistema confirma desistência de armazenamento da lista
   6. usuário confirma cancelamento
   7. retorna ao passo 5 do fluxo principal
+  
+  
+  ## CDU004 - Gerenciar categorias de tarefas
+  
+Fluxo Principal
+  1. usuario pressiona o botão "Gerenciar tarefas" em seu perfil
+  2. sistema apresenta todas as listas de tarefas.
+  3. usuário seleciona lista na qual a tarefa a ser categorizada está inserida.
+  4. sistema apresenta tarefas da lista escolhida
+  5. usuário seleciona tarefa a ser categorizada
+  6. sistema apresenta lista de categorias disponíveis
+  7. usuário seleciona categoria para a tarefa
+  8. sistema apresenta tela de confirmação
+  9. usuário confirma categorização
+  10. sistema apresenta "Categorizar mais tarefas ?" , "Sim" , "Não"
+  11. usuário seleciona "Não"
+  12. sistema retorna ao menu inicial
+
+Fluxo Alternativo 8b  
+
+  8. sistema apresenta tela de confirmação
+  9. usuário declina confirmacao
+  10. sistema exibe lista de categorias disponíveis
+
+Fluxo Alternativo 10b
+
+  10. sistema apresenta "Categorizar mais tarefas ?" , "Sim" , "Não"
+  11. usuário seleciona "Sim"
+  12. sistema apresenta lista de tarefas
+
+  
+  
