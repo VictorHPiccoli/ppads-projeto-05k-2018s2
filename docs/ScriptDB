@@ -1,50 +1,154 @@
-const
-  { User } = require('../models/userModel'),
-  { Task } = require('../models/taskModel'),
-  moment = require('moment'),
-  db = require('../config/mongoConnect'),
-  co = require('co')
+-- phpMyAdmin SQL Dump
+-- version 4.7.7
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: 13-Dez-2018 às 17:03
+-- Versão do servidor: 10.1.31-MariaDB
+-- PHP Version: 7.0.26
 
-db
-  .then(() => {
-    co(function * () {
-      try {
-        const users = yield User.find()
-        let tasks = []
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-        users.map(user => {
-          let
-            date = moment().format(),
-            taskOne = {
-              'user': user._id,
-              'value': 'Começar a usar a lista',
-              'done': true,
-              'created_at': date,
-              'completed_at': date
-            },
-            taskTwo = {
-              'user': user._id,
-              'value': 'Criar minha primeira tarefa',
-              'done': false,
-              'created_at': date,
-              'time_limit': date.add(1, 'h')
-            }
 
-          tasks.push(taskOne, taskTwo)
-        })
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-        Task.create(tasks, (err, tasks) => {
-          if (err) {
-            console.log(err)
-          }
+--
+-- Database: `id8213268_teste`
+--
 
-          console.log(`Lista inicial criada para ${users.lenght} usuários`)
-          process.exit()
-        })
-      } catch (err) {
-        console.log(err)
-        process.exit()
-      }
-    })
-  })
-  .catch((err) => console.log(err))
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `classificacao`
+--
+
+CREATE TABLE `classificacao` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `usuario` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `classificacao`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `listas`
+--
+
+CREATE TABLE `listas` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `classificacao` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `usuario` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `prioridade` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `listas`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tarefas`
+--
+
+CREATE TABLE `tarefas` (
+  `id` int(11) NOT NULL,
+  `nomeTarefa` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nomeLista` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `usuario` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `prioridade` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tarefas`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `usuario` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `senha` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `classificacao`
+--
+ALTER TABLE `classificacao`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `listas`
+--
+ALTER TABLE `listas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tarefas`
+--
+ALTER TABLE `tarefas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `classificacao`
+--
+ALTER TABLE `classificacao`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `listas`
+--
+ALTER TABLE `listas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `tarefas`
+--
+ALTER TABLE `tarefas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
