@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+
+
+
+    <title>To-do List</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="listas.html">To-do List</a>
+        <div class="" id="navbarSupportedContent">
+
+            <button class="btn btn-outline-success my-2 my-sm-0" style="margin-left: 10px;margin-right: 10px"
+                data-toggle="modal" data-target="#create-list-modal" id="create-list">Criar
+                Lista</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#create-classification-modal">Criar
+                Classificação</button>
+            <button class="btn btn-outline-danger my-2 my-sm-0" onclick=(logoff())>
+                Deslogar</button>
+
+        </div>
+    </nav>
+    <h1 style="text-align:center">Listas</h1>
+
+    <table class="table" id="tableList">
+        <thead>
+            <tr>
+                <th scope="col">Nome da Lista</th>
+                <th scope="col">Classificação</th>
+                <th scope="col">Prioridade</th>
+                <th scope="col">Editar Lista</th>
+                <th scope="col">Deletar Lista</th>
+                <th scope="col">Ver Tarefas</th>
+            </tr>
+        </thead>
+        <tbody id="listsTable">
+        </tbody>
+    </table>
+
+    <!-- Modal Lista-->
+    <div class="modal fade" id="create-list-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Criar Lista</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nome da Lista</label>
+                            <input type="text" class="form-control" id="nameList" aria-describedby="emailHelp"
+                                placeholder="Nome da lista">
+                            <label for="exampleInputEmail1">Prioridade da Lista</label></br>
+                            <select class="selectpicker" id="createPriority">
+                                <option value="Alta">Alta</option>
+                                <option value="Média">Média</option>
+                                <option value="Baixa">Baixa</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" onclick=(createList())>Criar Lista</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Modal Lista-->
+    <!-- Modal Classificacao-->
+    <div class="modal fade" id="create-classification-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Criar Classificacao</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nome da Classificacao</label>
+                            <input type="text" class="form-control" id="nameClassification" aria-describedby="emailHelp"
+                                placeholder="Nome da Classificacao">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" onclick=(createClassification())>Criar Classificacao</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Modal Classificacao-->
+    <!-- Modal Edit List-->
+    <div class="modal fade" id="edit-list-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Lista</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="exampleInputEmail1">Nome da Lista</label>
+                    <input type="text" class="form-control" id="editNameList" aria-describedby="emailHelp" placeholder="Nome da lista"></br>
+                    <label for="exampleInputEmail1">Nova Classificação</label></br>
+                    <select class="selectpicker" id="editList">
+                    </select>
+                    </br><label for="exampleInputEmail1">Nova Prioridade da Lista</label></br>
+                    <select class="selectpicker" id="editPriority">
+                        <option value="Alta">Alta</option>
+                        <option value="Média">Média</option>
+                        <option value="Baixa">Baixa</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" onclick=(editList())>Editar Lista</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Modal Edit List-->
+    <!-- Modal Delete List-->
+    <div class="modal fade" id="delete-list-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deletar Lista</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" onclick=(deleteList())>Deletar Lista</button>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Modal Delete List-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
